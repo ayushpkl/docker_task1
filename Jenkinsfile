@@ -39,11 +39,12 @@ pipeline {
                     sh '''
                         export DISPLAY=:0
                         export XAUTHORITY=/home/ayush.ranjan/.Xauthority
-                        nohup google-chrome http://localhost:3001 >/dev/null 2>&1 &
+                        JENKINS_NODE_COOKIE=dontKillMe BUILD_ID=dontKillMe setsid google-chrome --new-window http://localhost:3000 >/dev/null 2>&1 < /dev/null &
                     '''
                 }
             }
         }
+
     }
 }
 
