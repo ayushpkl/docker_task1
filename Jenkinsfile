@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "devops-portfolio-site"
         CONTAINER_NAME = "devops-portfolio-container"
-        APP_URL = "http://localhost:3000"
+        APP_URL = "http://localhost:3001"
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
                 script {
                     sh "docker stop ${CONTAINER_NAME} || true"
                     sh "docker rm ${CONTAINER_NAME} || true"
-                    sh "docker run -d -p 3000:3000 --name ${CONTAINER_NAME} ${IMAGE_NAME}"
+                    sh "docker run -d -p 3001:3000 --name ${CONTAINER_NAME} ${IMAGE_NAME}"
                 }
             }
         }
@@ -39,63 +39,11 @@ pipeline {
                     sh '''
                         export DISPLAY=:0
                         export XAUTHORITY=/home/ayush.ranjan/.Xauthority
-                        nohup google-chrome http://localhost:3000 >/dev/null 2>&1 &
+                        nohup google-chrome http://localhost:3001 >/dev/null 2>&1 &
                     '''
                 }
             }
         }
     }
 }
-
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
-B
 
